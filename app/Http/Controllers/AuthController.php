@@ -70,6 +70,7 @@ class AuthController extends Controller
             'phone' => 'max:255',
             'address' => 'required',
         ]);
+        // dd($validated);
 
         $user = User::create([
             'username' => $request->username,
