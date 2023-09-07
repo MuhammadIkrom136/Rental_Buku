@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,12 +13,12 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        return view('login');
+        return view('login.login');
     }
 
     public function register()
     {
-        return view('register');
+        return view('login.register');
     }
     public function authenticating(Request $request)
     {
@@ -33,7 +34,7 @@ class AuthController extends Controller
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
-                
+
                 session()->flash('status', 'failed');
                 session()->flash('message', 'your account is not active yet. please contact admin');
                 return redirect('/login');
@@ -51,7 +52,7 @@ class AuthController extends Controller
             // return redirect();
         }
         session()->flash('status', 'failed');
-        session()->flash('message', 'login invalid');
+        session()->flash('message', 'Login Invalid');
         return redirect('login');
     }
     public function logout(request $request)
@@ -68,10 +69,7 @@ class AuthController extends Controller
             'password' => 'required|max:255',
             'phone' => 'max:255',
             'address' => 'required',
-
         ]);
-
-
 
         $user = User::create([
             'username' => $request->username,
@@ -82,5 +80,14 @@ class AuthController extends Controller
         ]);
 
         return redirect('/login');
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->has('search')) {
+            $data = Book::where('nama', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        } else {
+            $data = Book::paginate(5);
+        }
     }
 }

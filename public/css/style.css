@@ -1,0 +1,121 @@
+.main {
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+mark {
+    border-radius: 15px;
+    font-family: monospace;
+    margin-left: 10px;
+}
+
+.login-box h2 {
+    color: white;
+    font-size: 46px;
+    margin-bottom: 22px;
+}
+
+.login-box span {
+    color: #3172ff;
+}
+
+.register-box span {
+    color: #3172ff;
+}
+
+.login-box {
+    color: white;
+    width: 500px;
+    border: solid 1px;
+    padding: 40px;
+    border-radius: 10px;
+    background: black;
+}
+
+.register-box {
+    color: white;
+    width: 500px;
+    border: solid 1px;
+    padding: 30px;
+    border-radius: 10px;
+    background: black;
+}
+
+form div {
+    margin-bottom: 22px;
+}
+
+.navbar-brand {
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.sidebar {
+    background: black;
+    color: white;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 75px;
+    width: 100%;
+    line-height: 75px;
+    padding-left: 30px;
+    border-bottom: 1px solid #444444;
+    border-left: 5px solid transparent;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.sidebar a:hover,
+a.active {
+    border-left: 5px solid #3564ff;
+    color: gray;
+}
+
+.card-data {
+    border: solid 1px;
+    padding: 24px 48px;
+    color: white;
+    border-radius: 10px;
+}
+
+.card-data.book {
+    background-color: #b80505;
+}
+
+.card-data.category {
+    background-color: #05b83b;
+}
+
+.card-data.user {
+    background-color: #cf7d02;
+}
+
+.card-data i {
+    font-size: 88px;
+}
+
+.card-name {
+    font-size: 28px;
+}
+
+.card-no {
+    font-size: 28px;
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(17, 17, 17, 0.938);
+}
+
+.search-bar {
+    width: 600px;
+}

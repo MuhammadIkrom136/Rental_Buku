@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $data = [
-            'fantasy', 'commic', 'novel', 'fiction', 'horror', 'romance', 'western'
+            'fantasy', 'comic', 'novel', 'fiction', 'horror', 'romance', 'western'
         ];
 
         foreach ($data as $key => $value) {
