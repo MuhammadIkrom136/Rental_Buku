@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Selamat Datang, {{ Auth::user()->username }} !</h1>
+    <h1>Selamat datang, {{ Auth::user()->username }} !</h1>
 
     <div class="row mt-5">
         <div class="col-lg-4">

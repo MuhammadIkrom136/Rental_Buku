@@ -18,21 +18,17 @@ class BookRentController extends Controller
         $books = Book::all();
         return view('rent.book-rent', ['users' => $users, 'books' => $books]);
     }
-
     public function store(Request $request)
     {
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(5)->toDateString();
-
         $book = Book::findOrFail($request->book_id)->only('status');
-
         if ($book['status'] != 'tersedia') {
             Session::flash('message', 'Tidak dapat menyewa buku, buku sedang tidak tersedia !');
             Session::flash('alert-class', 'alert-danger');
             return redirect('book-rent');
         } else {
             $count = RentLogs::where('user_id', $request->user_id)->where('actual_return_date', null)->count();
-
             if ($count >= 3) {
                 Session::flash('message', 'Tidak dapat menyewa buku, pengguna telah mencapai batas buku !');
                 Session::flash('alert-class', 'alert-danger');
@@ -45,7 +41,6 @@ class BookRentController extends Controller
                     $book->status = 'tidak tersedia';
                     $book->save();
                     DB::commit();
-
                     Session::flash('message', 'Berhasil Meminjam Buku !');
                     Session::flash('alert-class', 'alert-success');
                     return redirect('book-rent');

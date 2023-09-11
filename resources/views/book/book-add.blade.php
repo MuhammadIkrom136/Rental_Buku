@@ -14,7 +14,7 @@
     <div class="mt-5 w-75">
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" type="button" data-bs-dismiss="alert"
-            aria-label="Close" role="alert">
+                aria-label="Close" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <strong>
@@ -54,7 +54,7 @@
             </div>
         </form>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>

@@ -15,7 +15,6 @@ class AuthController extends Controller
     {
         return view('login.login');
     }
-
     public function register()
     {
         return view('login.register');
@@ -27,19 +26,16 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
         // cek apakah login valid
-
         if (Auth::attempt($credentials)) {
             // cek apakah user status = active
             if (Auth::user()->status != 'active') {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
-
                 session()->flash('status', 'failed');
-                session()->flash('message', 'your account is not active yet. please contact admin');
+                session()->flash('message', 'Akun anda tidak aktif, silahkan hubungi admin');
                 return redirect('/login');
             }
-
             $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
                 return redirect('dashboard');
@@ -48,11 +44,10 @@ class AuthController extends Controller
                 return redirect('profile');
             }
             // $request->session()->regenerate();
-
             // return redirect();
         }
         session()->flash('status', 'failed');
-        session()->flash('message', 'Login Invalid');
+        session()->flash('message', 'Login tidak berhasil');
         return redirect('login');
     }
     public function logout(request $request)
@@ -71,7 +66,6 @@ class AuthController extends Controller
             'address' => 'required',
         ]);
         // dd($validated);
-
         $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password),
@@ -82,7 +76,6 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
-
     public function index(Request $request)
     {
         if ($request->has('search')) {

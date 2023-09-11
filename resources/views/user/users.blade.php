@@ -8,7 +8,28 @@
     @include('user.user-modal')
     <div class="my-5 mb-3 d-flex justify-content-end">
         <a href="/user-banned" class="btn btn-secondary me-3">Pengguna Yang Diblokir</a>
-        <a href="/registered-users" class="btn btn-primary">Konfirmasi Pengguna</a>
+        <a href="/registered-users" class="btn btn-primary me-3">Konfirmasi Pengguna</a>
+        <div class="row d-flex justify-content-end">
+            <div class="dropdown">
+                <a class="btn btn-secondary-outline" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end search-bar" aria-labelledby="dropdownMenuLink">
+                    <div class="col-12">
+                        <form action="users" method="get" class="d-flex">
+                            <div class="input-group">
+                                <input type="search" class="form-control me-2" placeholder="Cari . . ." name="search"
+                                    aria-label="Search" autocomplete="off">
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="submit" style="width: 100px">Cari</button>
+                            </div>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="mt-5">
         @if (session('status'))

@@ -11,7 +11,6 @@ class PublicController extends Controller
     public function index(Request $request)
     {
         $categories = Category::all();
-
         if ($request->category || $request->title) {
             $books = Book::whereHas('categories', function ($q) use ($request) {
                     $q->where('categories.id', $request->category);
@@ -20,7 +19,6 @@ class PublicController extends Controller
         } else {
             $books = Book::all();
         }
-
         return view('book.book-list', ['books' => $books, 'categories' => $categories]);
     }
 }

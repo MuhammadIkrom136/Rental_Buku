@@ -32,7 +32,7 @@
                     @if (Auth::user())
                         @if (Auth::user()->role_id == 1)
                             <a href="/dashboard" @if (request()->route()->uri == 'dashboard') class="active" @endif><i
-                                    class="fal fa-home"></i> Beranda</a>
+                                    class="fal fa-home" style="color: ;"></i> Beranda</a>
                             <a href="/books" @if (request()->route()->uri == 'books' ||
                                     request()->route()->uri == 'book-add' ||
                                     request()->route()->uri == 'book-deleted' ||
@@ -73,7 +73,7 @@
                                     class="fal fa-sign-out"></i> Keluar</a>
                         @else
                             <a href="/profile" @if (request()->route()->uri == 'profile') class="active" @endif><i
-                                    class="fal fa-user"></i> Profile</a>
+                                    class="fal fa-user"></i> Profil</a>
                             <a href="/" @if (request()->route()->uri == '/') class="active" @endif><i
                                     class="fal fa-clipboard-list"></i> Daftar Buku</a>
                             <a href="" data-bs-toggle="modal" data-bs-target="#logoutModal"><i

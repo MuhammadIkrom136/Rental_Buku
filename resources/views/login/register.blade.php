@@ -15,7 +15,7 @@
     <div class="main d-flex flex-column justify-content-center align-items-center ">
         <div class="register-box">
             <h2 class="mb-3"><span>R</span>-Book</h2>
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" type="button" data-bs-dismiss="alert"
                     aria-label="Close" role="alert" style="width: 437px;border-radius:10px;">
                     <ul>
@@ -26,17 +26,17 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif --}}
             <form action="/register" method="post">
                 @csrf
                 <div>
                     <label for="username" class="form-label">Nama Pengguna</label>
-                    <input type="text" name="username" id="username" class="form-control" autocomplete="off">
+                    <input type="text" name="username" id="username" class="form-control" autocomplete="off" required>
                 </div>
 
                 <div>
                     <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" name="password" id="password" class="form-control" autocomplete="off">
+                    <input type="password" name="password" id="password" class="form-control" autocomplete="off" required>
                 </div>
 
                 <div>
@@ -46,7 +46,7 @@
 
                 <div>
                     <label for="address" class="form-label">Alamat</label>
-                    <textarea name="address" id="email" class="form-control" rows="5"></textarea>
+                    <textarea name="address" id="email" class="form-control" rows="5" required></textarea>
                 </div>
 
                 <div>
