@@ -46,24 +46,48 @@
 
     <div class="mt-5">
         <h2>#Catatan Sewa</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama Pengguna</th>
-                    <th>Judul Buku</th>
-                    <th>Tanggal Peminjaman</th>
-                    <th>Tanggal Pengembalian</th>
-                    <th>Waktu Pengembalian</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="7" style="text-align:center">Tidak Ada Data...</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table mt-2">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Pengguna</th>
+                        <th>Buku</th>
+                        <th>Tangggal Peminjaman</th>
+                        <th>Tanggal Pengembalian</th>
+                        <th>Waktu Pengembalian</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($rentlog as $item)
+                        <tr
+                            class="{{ $item->actual_return_date == null
+                                ? ($item->return_date < date('Y-m-d')
+                                    ? 'text-white bg-danger'
+                                    : 'text-black')
+                                : ($item->return_date < $item->actual_return_date
+                                    ? 'text-white bg-warning'
+                                    : 'text-white bg-success') }}">
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->user->username }}</td>
+                            <td>{{ $item->book->title }}</td>
+                            <td>{{ $item->rent_date }}</td>
+                            <td>{{ $item->return_date }}</td>
+                            <td>{{ $item->actual_return_date }}</td>
+                            <td>{{ $item->actual_return_date == null
+                                ? ($item->return_date < date('Y-m-d')
+                                    ? 'Belum Mengembalikan'
+                                    : 'Sedang Meminjam')
+                                : ($item->return_date < $item->actual_return_date
+                                    ? 'Telat Mengembalikan'
+                                    : 'Sudah Mengembalikan') }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection

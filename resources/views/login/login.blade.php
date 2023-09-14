@@ -13,29 +13,32 @@
 
 <body>
 
-    <div class="main d-flex flex-column justify-content-center align-items-center">
-        <div class="login-box ">
-            <h2><span>R</span>-Book</h2>
+    <div class="login-main main d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh">
+        <div class="login-box">
+            <h2 class="mb-5">Login</h2>
             <form action="" method="post">
                 @if (session('status'))
-                    <div class="alert alert-danger alert-dismissible fade show" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show" type="button" class="btn-close"
+                        data-bs-dismiss="alert" aria-label="Close" role="alert">
                         <strong>{{ session('message') }}</strong>
                     </div>
                 @endif
                 @csrf
-                <div>
-                    <label for="username" class="form-label">Nama Pengguna</label>
-                    <input type="text" name="username" id="username" class="form-control" autocomplete="off">
+                <div class="form-floating">
+                    <input type="text" name="username" id="floatingInput" class="form-control" autocomplete="off"
+                        placeholder="Nama Pengguna">
+                    <label for="floatingInput" class="form-label">Nama Pengguna</label>
                 </div>
-                <div>
-                    <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" name="password" id="password" class="form-control">
+                <div class="form-floating">
+                    <input type="password" name="password" id="floatingPassword" class="form-control"
+                        placeholder="Password">
+                    <label for="floatingPassword" class="form-label">Kata Sandi</label>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary form-control">Masuk</button>
                 </div>
                 <div class="text-center">
-                    BelumPunyaAkun? <a href="register">Daftar</a>
+                    BelumPunyaAkun?<a href="register">Daftar</a>
                 </div>
             </form>
         </div>

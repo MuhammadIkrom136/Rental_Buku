@@ -46,6 +46,7 @@ class AuthController extends Controller
             // $request->session()->regenerate();
             // return redirect();
         }
+        // jika tidak bisa masuk
         session()->flash('status', 'failed');
         session()->flash('message', 'Login tidak berhasil');
         return redirect('login');
@@ -59,6 +60,7 @@ class AuthController extends Controller
     }
     public function registerProcess(Request $request)
     {
+        // proses registerz
         $validated = $request->validate([
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:255',

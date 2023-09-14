@@ -10,6 +10,7 @@ class PublicController extends Controller
 {
     public function index(Request $request)
     {
+        // untuk menampilkan daftar buku pada halaman public
         $categories = Category::all();
         if ($request->category || $request->title) {
             $books = Book::whereHas('categories', function ($q) use ($request) {

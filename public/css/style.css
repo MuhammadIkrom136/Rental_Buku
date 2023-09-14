@@ -9,9 +9,13 @@ mark {
     margin-left: 10px;
 }
 
+.login-main {
+    background: linear-gradient(110deg, #5289ff, #5c5c5c);
+}
+
 .login-box h2 {
-    color: white;
-    font-size: 46px;
+    text-align: center;
+    font-size: 250%;
     margin-bottom: 22px;
 }
 
@@ -19,26 +23,38 @@ mark {
     color: #3172ff;
 }
 
-.register-box span {
-    color: #3172ff;
-}
-
 .login-box {
-    color: white;
+    position: absolute;
     width: 500px;
     border: solid 1px;
     padding: 40px;
+    box-shadow: 0 0 20px 0 black;
     border-radius: 10px;
-    background: black;
+    background: white;
+}
+
+.register-main {
+    position: relative;
+    background: linear-gradient(110deg, #5c5c5c, #5289ff);
 }
 
 .register-box {
-    color: white;
     width: 500px;
     border: solid 1px;
     padding: 30px;
+    box-shadow: 0 0 20px 0 black;
     border-radius: 10px;
-    background: black;
+    background: white;
+}
+
+.register-box h2{
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 22px;
+}
+
+.register-box span {
+    color: #3172ff;
 }
 
 form div {
@@ -101,7 +117,7 @@ a.active {
 }
 
 .card-name {
-    font-size: 28px;
+    font-size: 150%;
 }
 
 .card-no {
@@ -114,8 +130,4 @@ a.active {
 }
 ::-webkit-scrollbar-thumb {
     background-color: rgba(17, 17, 17, 0.938);
-}
-
-.search-bar {
-    width: 600px;
 }
