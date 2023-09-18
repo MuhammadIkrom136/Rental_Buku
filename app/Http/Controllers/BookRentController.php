@@ -20,20 +20,24 @@ class BookRentController extends Controller
     }
     public function store(Request $request)
     {
+        // untuk peminjaman buku
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(5)->toDateString();
         $book = Book::findOrFail($request->book_id)->only('status');
+        // jika buku yang dipilih untuk di pinjam sedang tidak tersedia, maka tidak dapat dipinjam
         if ($book['status'] != 'tersedia') {
             Session::flash('message', 'Tidak dapat menyewa buku, buku sedang tidak tersedia !');
             Session::flash('alert-class', 'alert-danger');
             return redirect('book-rent');
         } else {
+            // jika user telah mencapai batas peminjaman, maka tidak dapat meminjam buku
             $count = RentLogs::where('user_id', $request->user_id)->where('actual_return_date', null)->count();
             if ($count >= 3) {
                 Session::flash('message', 'Tidak dapat menyewa buku, pengguna telah mencapai batas buku !');
                 Session::flash('alert-class', 'alert-danger');
                 return redirect('book-rent');
             } else {
+                // jika user dan buku yang dipilih untuk di dipinjam benar, maka berhasil dipinjam
                 try {
                     DB::beginTransaction();
                     RentLogs::create($request->all());
@@ -48,6 +52,27 @@ class BookRentController extends Controller
                     DB::rollBack();
                 }
             }
+        }
+    }
+
+    public function returnBook()
+    {
+        $users = User::where('id', '!=', 1)->where('status', 'active')->get();
+        $books = Book::all();
+        return view('rent.return-book', ['users' => $users, 'books' => $books]);
+    }
+
+    public function saveReturn(Request $request)
+    {
+        // user dan buku yang dipilih untuk di kembalikan benar, maka berhasil dikempalikan
+        // user dan buku yang dipilih untuk dikembalikan, maka muncul notif error
+
+        $rent = RentLogs::where('user_id', $request->user_id)->where('book_id', $request->book_id)
+            ->where('actual_return_date', null)->count();
+        if ($rent == 1) {
+            // akan mengembalikan buku
+        } else {
+            // error pengembalian
         }
     }
 }

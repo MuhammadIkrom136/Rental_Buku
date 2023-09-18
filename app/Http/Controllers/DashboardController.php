@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // untuk menampilkan jumlah pada dashboard
+        // untuk menampilkan jumlah data pada dashboard
         $bookCount = Book::count();
         $categoryCount = Category::count();
         $userCount = User::count();

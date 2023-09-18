@@ -60,7 +60,7 @@ class AuthController extends Controller
     }
     public function registerProcess(Request $request)
     {
-        // proses registerz
+        // proses register
         $validated = $request->validate([
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:255',

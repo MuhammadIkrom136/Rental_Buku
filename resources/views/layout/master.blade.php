@@ -52,7 +52,7 @@
                                     request()->route()->uri == 'user-banned') class="active" @endif><i
                                     class="fal fa-user"></i> Pengguna</a>
                             <a href="/" @if (request()->route()->uri == '/') class="active" @endif><i
-                                    class="fal fa-clipboard-list"></i> Daftar Buku</a>
+                                    class="fal fa-cl    ipboard-list"></i> Daftar Buku</a>
                             <a href="/rentlogs" @if (request()->route()->uri == 'rentlogs') class="active" @endif><i
                                     class="fal fa-history"></i> Catatan Sewa</a>
                             <a href="/book-rent" @if (request()->route()->uri == 'book-rent') class="active" @endif><i

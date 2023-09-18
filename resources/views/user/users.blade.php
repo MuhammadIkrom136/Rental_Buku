@@ -59,7 +59,7 @@
         @endif
     </div>
     <div class="my-5">
-        <div class="table responsive">
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>

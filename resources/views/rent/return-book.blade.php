@@ -1,26 +1,15 @@
 @extends('layout.master')
 
-@section('title', 'Penyewaan Buku')
+@section('title', 'Pengembalian Buku')
 
 @section('content')
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-md-3">
-        <h1 class="mb-5">Halaman Penyewaan Buku</h1>
+        <h1 class="mb-5">Halaman Pengembalian Buku</h1>
 
-        <div class="mt-5">
-            @if (session('message'))
-                <div class="alert {{ session('alert-class') }}">
-                    <div class="alert-dismissible fade show" role="alert">
-                        <strong>{{ session('message') }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            @endif
-        </div>
-
-        <form action="book-rent" method="post">
+        <form action="book-return" method="post">
             @csrf
             <div class="mb-3">
                 <label for="user" form="form-label" class="mb-1">Pengguna</label>
@@ -42,7 +31,7 @@
                 </select>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary w-100">Pilih</button>
+                <button type="submit" class="btn btn-primary w-100 ">Pilih</button>
             </div>
         </form>
     </div>

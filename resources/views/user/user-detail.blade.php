@@ -14,31 +14,19 @@
     </div>
 
     <div class="my-3 w-50">
-        <table style="width: 100%">
-            <tr>
-                <th class="">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control" readonly value="{{ $user->username }}">
-                    </div>
-                </th>
-                <th>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Telepon</label>
-                        <input type="text" class="form-control" readonly value="{{ $user->phone }}">
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Alamat</label>
-                        <textarea name="" id="" cols="30" rows="3" class="form-control" readonly
-                            style="resize: none;">{{ $user->address }}</textarea>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div class="mb-3">
+            <label for="" class="form-label">Nama Pengguna</label>
+            <input type="text" class="form-control" readonly value="{{ $user->username }}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Telepon</label>
+            <input type="text" class="form-control" readonly value="{{ $user->phone }}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Alamat</label>
+            <textarea name="" id="" cols="30" rows="3" class="form-control" readonly
+                style="resize: none;">{{ $user->address }}</textarea>
+        </div>
         <div class="mb-3">
             <label for="" class="form-label">Status</label>
             <input type="text" class="form-control" readonly value="{{ $user->status }}">
