@@ -11,11 +11,9 @@
 
         <div class="mt-5">
             @if (session('message'))
-                <div class="alert {{ session('alert-class') }}">
-                    <div class="alert-dismissible fade show" role="alert">
-                        <strong>{{ session('message') }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                <div class="alert {{ session('alert-class') }} alert-success alert-dismissible fade show" type="button"
+                    class="btn-close" data-bs-dismiss="alert" aria-label="Close" role="alert">
+                    <strong>{{ session('message') }}</strong>
                 </div>
             @endif
         </div>

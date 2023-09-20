@@ -9,6 +9,15 @@
     <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-md-3">
         <h1 class="mb-5">Halaman Pengembalian Buku</h1>
 
+        <div class="mt-5">
+            @if (session('message'))
+                <div class="alert {{ session('alert-class') }} alert-success alert-dismissible fade show" type="button"
+                    class="btn-close" data-bs-dismiss="alert" aria-label="Close" role="alert">
+                    <strong>{{ session('message') }}</strong>
+                </div>
+            @endif
+        </div>
+
         <form action="book-return" method="post">
             @csrf
             <div class="mb-3">

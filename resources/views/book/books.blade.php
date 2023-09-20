@@ -38,13 +38,13 @@
     <div class="mt-3 d-flex justify-content-end">
         <form action="books" method="get" class="d-flex justify-content-end" style="width: 450px">
             <div class="input-group">
-                <input type="search" class="form-control me-2" placeholder="Cari . . ." name="search"
-                    aria-label="Search" autocomplete="off">
+                <input type="search" class="form-control me-2" placeholder="Cari . . ." name="search" aria-label="Search"
+                    autocomplete="off">
             </div>
             @if ($search)
-            <div class="input-group-append">
-                <a href="/books" class="btn btn-outline-danger me-2" style="width: 60px">Batal</a>
-            </div>
+                <div class="input-group-append">
+                    <a href="/books" class="btn btn-outline-danger me-2" style="width: 60px">Batal</a>
+                </div>
             @endif
             <div class="input-group-append">
                 <button class="btn btn-outline-primary" type="submit" style="width: 60px">Cari</button>
@@ -54,11 +54,9 @@
 
     <div class="mt-5">
         @if (session('status'))
-            <div class="alert alert-success">
-                <div class="alert-dismissible fade show" role="alert">
-                    <strong>{{ session('status') }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert {{ session('alert-class') }} alert-success alert-dismissible fade show" type="button"
+                class="btn-close" data-bs-dismiss="alert" aria-label="Close" role="alert">
+                <strong>{{ session('status') }}</strong>
             </div>
         @endif
     </div>
@@ -99,7 +97,7 @@
             </table>
         </div>
     </div>
-    
+
 
     <script src="{{ asset('js/script.js') }}"></script>
 

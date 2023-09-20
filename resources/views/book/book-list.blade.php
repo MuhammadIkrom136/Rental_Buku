@@ -11,6 +11,9 @@
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
         </select>
+        @if ($search)
+            <a href="/" class="btn btn-outline-danger me-2" style="width: 100px">Batal</a>
+        @endif
         <button class="btn btn-outline-primary" type="submit" style="width: 100px">Cari</button>
     </form>
 

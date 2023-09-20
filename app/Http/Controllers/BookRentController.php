@@ -23,7 +23,14 @@ class BookRentController extends Controller
         // untuk peminjaman buku
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(5)->toDateString();
-        $book = Book::findOrFail($request->book_id)->only('status');
+        $booka = Book::find($request->book_id);
+        if(is_null($booka)){
+            Session::flash('message', 'Tolong masukkan data !');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('book-rent');
+        }
+
+        $book = $booka->only('status');
         // jika buku yang dipilih untuk di pinjam sedang tidak tersedia, maka tidak dapat dipinjam
         if ($book['status'] != 'tersedia') {
             Session::flash('message', 'Tidak dapat menyewa buku, buku sedang tidak tersedia !');
@@ -68,11 +75,30 @@ class BookRentController extends Controller
         // user dan buku yang dipilih untuk dikembalikan, maka muncul notif error
 
         $rent = RentLogs::where('user_id', $request->user_id)->where('book_id', $request->book_id)
-            ->where('actual_return_date', null)->count();
-        if ($rent == 1) {
+            ->where('actual_return_date', null);
+        $rentData = $rent->first();
+        $countData = $rent->count();
+        $booka = Book::find($request->book_id);
+        if(is_null($booka)){
+            Session::flash('message', 'Tolong masukkan data !');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('book-return');
+        }
+
+        if ($countData == 1) {
             // akan mengembalikan buku
+            $rentData->actual_return_date = Carbon::now()->toDateString();
+            $rentData->save();
+            $booka->status = 'tersedia';
+            $booka->save();
+            Session::flash('message', 'Buku berhasil dikembalikan !');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('book-return');
         } else {
             // error pengembalian
+            Session::flash('message', 'Data yang dimasukkan salah !');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('book-return');
         }
     }
 }

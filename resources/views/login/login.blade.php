@@ -26,12 +26,12 @@
                 @csrf
                 <div class="form-floating">
                     <input type="text" name="username" id="floatingInput" class="form-control" autocomplete="off"
-                        placeholder="Nama Pengguna">
+                        placeholder="Nama Pengguna" required>
                     <label for="floatingInput" class="form-label">Nama Pengguna</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" name="password" id="floatingPassword" class="form-control"
-                        placeholder="Password">
+                        placeholder="Password" required>
                     <label for="floatingPassword" class="form-label">Kata Sandi</label>
                 </div>
                 <div>

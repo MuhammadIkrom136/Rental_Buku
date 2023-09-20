@@ -11,15 +11,16 @@ class PublicController extends Controller
     public function index(Request $request)
     {
         // untuk menampilkan daftar buku pada halaman public
-        $categories = Category::all();
+        $search = $request->category;
+        $categories = Category::get();
         if ($request->category || $request->title) {
             $books = Book::whereHas('categories', function ($q) use ($request) {
                     $q->where('categories.id', $request->category);
                 })
-                ->get();    
+                ->get();
         } else {
             $books = Book::all();
         }
-        return view('book.book-list', ['books' => $books, 'categories' => $categories]);
+        return view('book.book-list', ['books' => $books, 'categories' => $categories, 'search' => $search]);
     }
 }
