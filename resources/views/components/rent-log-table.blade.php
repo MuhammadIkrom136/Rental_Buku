@@ -1,7 +1,7 @@
 <div>
     {{-- {{ date('Y-m-d') }} --}}
 
-    <div class="mt-3 d-flex justify-content-end">
+    {{-- <div class="mt-3 d-flex justify-content-end">
         <form action="/rentlogs" method="GET" class="d-flex justify-content-end" style="width: 450px">
             <div class="input-group">
                 @if (isset($_GET['search']))
@@ -22,7 +22,7 @@
                 <button class="btn btn-outline-primary" type="submit" style="width: 60px">Cari</button>
             </div>
         </form>
-    </div>
+    </div> --}}
 
     <div class="table-responsive">
         <table class="table mt-3">
@@ -48,8 +48,8 @@
                                 ? 'text-white bg-warning'
                                 : 'text-white bg-success') }}">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->username }}</td>
-                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->user->username }}</td>
+                        <td>{{ $item->book->title }}</td>
                         <td>{{ $item->rent_date }}</td>
                         <td>{{ $item->return_date }}</td>
                         <td>{{ $item->actual_return_date }}</td>

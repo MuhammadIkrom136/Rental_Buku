@@ -38,7 +38,7 @@
                     <button type="submit" class="btn btn-primary form-control">Masuk</button>
                 </div>
                 <div class="text-center">
-                    BelumPunyaAkun?<a href="register">Daftar</a>
+                    BelumPunyaAkun?<a href="">Daftar</a>
                 </div>
             </form>
         </div>
