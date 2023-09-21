@@ -17,17 +17,17 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-        Role::truncate();
-        Schema::enableForeignKeyConstraints();
+        // Role::truncate();
+        // Schema::enableForeignKeyConstraints();
 
-        $data = [
-            'admin', 'client'
-        ];
+        // $data = [
+        //     'admin', 'client'
+        // ];
 
-        foreach ($data as $key => $value) {
-            Role::insert([
-                'name' => $value
-            ]);
-        }
+        // foreach ($data as $key => $value) {
+        //     Role::insert([
+        //         'name' => $value
+        //     ]);
+        // }
     }
 }

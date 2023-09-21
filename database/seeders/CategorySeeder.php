@@ -16,18 +16,18 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Schema::disableForeignKeyConstraints();
-        Category::truncate();
-        Schema::enableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
+        // Category::truncate();
+        // Schema::enableForeignKeyConstraints();
 
-        $data = [
-            'fantasy', 'comic', 'novel', 'fiction', 'horror', 'romance', 'western'
-        ];
+        // $data = [
+        //     'fantasy', 'comic', 'novel', 'fiction', 'horror', 'romance', 'western'
+        // ];
 
-        foreach ($data as $key => $value) {
-            Category::insert([
-                'name' => $value
-            ]);
-        }
+        // foreach ($data as $key => $value) {
+        //     Category::insert([
+        //         'name' => $value
+        //     ]);
+        // }
     }
 }
