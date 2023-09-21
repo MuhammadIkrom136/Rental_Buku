@@ -24,7 +24,8 @@ class BookRentController extends Controller
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(5)->toDateString();
         $booka = Book::find($request->book_id);
-        if(is_null($booka)){
+
+        if (is_null($booka) || is_null($request->user_id)) {
             Session::flash('message', 'Tolong masukkan data !');
             Session::flash('alert-class', 'alert-danger');
             return redirect('book-rent');
@@ -72,21 +73,20 @@ class BookRentController extends Controller
     public function saveReturn(Request $request)
     {
         // user dan buku yang dipilih untuk di kembalikan benar, maka berhasil dikempalikan
-        // user dan buku yang dipilih untuk dikembalikan, maka muncul notif error
-
         $rent = RentLogs::where('user_id', $request->user_id)->where('book_id', $request->book_id)
             ->where('actual_return_date', null);
         $rentData = $rent->first();
         $countData = $rent->count();
+        // jika tidak ada data yang dimasukkan
         $booka = Book::find($request->book_id);
-        if(is_null($booka)){
+        if (is_null($booka) || is_null($request->user_id)) {
             Session::flash('message', 'Tolong masukkan data !');
             Session::flash('alert-class', 'alert-danger');
             return redirect('book-return');
         }
 
         if ($countData == 1) {
-            // akan mengembalikan buku
+            // jika user dan buku yang dipilih untuk dikembalikan benar, maka berhasil dikembalikan
             $rentData->actual_return_date = Carbon::now()->toDateString();
             $rentData->save();
             $booka->status = 'tersedia';
@@ -95,7 +95,7 @@ class BookRentController extends Controller
             Session::flash('alert-class', 'alert-success');
             return redirect('book-return');
         } else {
-            // error pengembalian
+            // jika user dan buku yang dipilih untuk dikembalikan salah, maka akan mucul notif error
             Session::flash('message', 'Data yang dimasukkan salah !');
             Session::flash('alert-class', 'alert-danger');
             return redirect('book-return');
