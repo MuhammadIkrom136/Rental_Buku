@@ -13,36 +13,7 @@
 
     <div class="my-5 mb-3 d-flex justify-content-end">
         <a href="/category-deleted" class="btn btn-secondary me-3">Data Yang Dihapus</a>
-        {{-- <a href="/category-add" class="btn btn-primary">Tambah Data</a> --}}
         <a href="" data-bs-toggle="modal" data-bs-target="#addModal" class="btn btn-primary">Tambah Data</a>
-        {{-- <div class="row d-flex justify-content-end">
-            <div class="dropdown">
-                <a class="btn btn-secondary-outline" href="#" role="button" id="dropdownMenuLink"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-search"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end search-bar" aria-labelledby="dropdownMenuLink">
-                    <div class="col-12">
-                        <form action="categories" method="get" class="d-flex">
-                            <div class="input-group">
-                                <input type="search" class="form-control me-2" placeholder="Cari . . ." name="search"
-                                    aria-label="Search" autocomplete="off">
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="submit" style="width: 100px">Cari</button>
-                            </div> --}}
-        {{-- <select type="search" name="search" id="category" class="form-select me-2" aria-label="Search">
-                                <option value="">Pilih Kategori</option>
-                                @foreach ($categories as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                            <button class="btn btn-outline-primary" type="submit" style="width: 100px">Cari</button> --}}
-        {{-- </form>
-                    </div>
-                </ul>
-            </div>
-        </div> --}}
     </div>
     <div class="mt-3 d-flex justify-content-end">
         <form action="categories" method="get" class="d-flex justify-content-end" style="width: 450px">
