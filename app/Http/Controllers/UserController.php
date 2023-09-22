@@ -20,7 +20,7 @@ class UserController extends Controller
         // untuk mencari user berdasarkan username
         $search = $request->search;
         $users = User::where('username', 'LIKE', '%' . $search . '%')
-            ->where('role_id', 2)->where('status', 'active')->get();
+            ->where('id', '!=', 1)->get();
         if ($users->count() <= 0) {
             $users = User::get();
         }
