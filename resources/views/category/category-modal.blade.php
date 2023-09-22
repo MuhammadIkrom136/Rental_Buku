@@ -25,7 +25,10 @@
 </div>
 
 {{-- add --}}
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addModal"
+
+
+tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog add-modal">
         <form action="/category-add" method="post">
             @csrf
