@@ -15,8 +15,8 @@ mark {
 
 .login-box h2 {
     text-align: center;
-    font-size: 250%;
-    margin-bottom: 22px;
+    font-size: 32px;
+    margin-top: 20px;
 }
 
 .login-box span {
@@ -25,9 +25,9 @@ mark {
 
 .login-box {
     position: absolute;
-    /* width: 500px; */
     border: solid 1px;
-    padding: 40px;
+    font-size: 14px;
+    padding: 10px 40px;
     box-shadow: 0 0 20px 0 black;
     border-radius: 10px;
     background: white;
@@ -42,6 +42,7 @@ mark {
     /* width: 500px; */
     border: solid 1px;
     padding: 30px;
+    font-size: 14px;
     box-shadow: 0 0 20px 0 black;
     border-radius: 10px;
     background: white;
@@ -49,8 +50,7 @@ mark {
 
 .register-box h2{
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 22px;
+    font-size: 32px;
 }
 
 .register-box span {
