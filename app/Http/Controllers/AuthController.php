@@ -58,16 +58,15 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('login');
     }
+    // proses register
     public function registerProcess(Request $request)
     {
-        // proses register
         $validated = $request->validate([
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:255',
             'phone' => 'max:255',
             'address' => 'required',
         ]);
-        // dd($validated);
         $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password),
@@ -76,7 +75,7 @@ class AuthController extends Controller
             'status' => 'active',
         ]);
 
-        return redirect('/login');
+        return redirect('/users');
     }
     public function index(Request $request)
     {

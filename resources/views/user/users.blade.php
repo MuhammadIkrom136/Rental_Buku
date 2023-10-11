@@ -8,7 +8,7 @@
     @include('user.user-modal')
     <div class="my-5 mb-3 d-flex justify-content-end">
         <a href="/user-banned" class="btn btn-secondary me-3">Pengguna Yang Diblokir</a>
-        <a href="/registered-users" class="btn btn-primary">Konfirmasi Pengguna</a>
+        <a href="/register" class="btn btn-primary">Tambah Pengguna</a>
         {{-- <div class="row d-flex justify-content-end">
             <div class="dropdown">
                 <a class="btn btn-secondary-outline" href="#" role="button" id="dropdownMenuLink"

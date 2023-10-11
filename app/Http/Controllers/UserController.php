@@ -30,7 +30,7 @@ class UserController extends Controller
     public function registeredUser()
     {
         // untuk membuat akun baru
-        $registeredUser = User::where('status', 'inactive')->where('role_id', 2)->get();
+        $registeredUser = User::where('status', 'active')->where('role_id', 2)->get();
         return view('user.registered-user', ['registeredUsers' => $registeredUser]);
     }
     public function show($slug)
@@ -40,14 +40,14 @@ class UserController extends Controller
         $rentlogs = RentLogs::with(['user', 'book'])->where('user_id', $user->id)->get();
         return view('user.user-detail', ['user' => $user, 'rent_logs' => $rentlogs]);
     }
-    public function approve($slug)
-    {
-        // untuk mengaktifkan user
-        $user = User::where('slug', $slug)->first();
-        $user->status = 'active';
-        $user->save();
-        return redirect('registered-users/')->with('status', 'Berhasil Mengonfirmasi Pengguna !');
-    }
+    // public function approve($slug)
+    // {
+    //     // untuk mengaktifkan user
+    //     $user = User::where('slug', $slug)->first();
+    //     $user->status = 'active';
+    //     $user->save();
+    //     return redirect('registered-users/')->with('status', 'Berhasil Mengonfirmasi Pengguna !');
+    // }
     // public function delete($slug)
     // {
     //     $user = User::where('slug', $slug)->first();

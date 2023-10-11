@@ -10,7 +10,7 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        //untuk mencari nama buku dengan title
+        // untuk mencari nama buku dengan title
         $search = $request->search;
         $books = Book::where('title', 'LIKE', '%' . $search . '%')
             ->get();

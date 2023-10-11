@@ -25,7 +25,7 @@ mark {
 
 .login-box {
     position: absolute;
-    width: 500px;
+    /* width: 500px; */
     border: solid 1px;
     padding: 40px;
     box-shadow: 0 0 20px 0 black;
@@ -39,7 +39,7 @@ mark {
 }
 
 .register-box {
-    width: 500px;
+    /* width: 500px; */
     border: solid 1px;
     padding: 30px;
     box-shadow: 0 0 20px 0 black;

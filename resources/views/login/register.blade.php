@@ -13,7 +13,7 @@
 
 <body>
     <div class="register-main main d-flex flex-column justify-content-center align-items-center ">
-        <div class="register-box">
+        <div class="register-box col-md-3 col-sm-6 col-xs-12">
             <h2 class="mb-4">Register</h2>
             {{-- @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" type="button" data-bs-dismiss="alert"
@@ -49,7 +49,7 @@
                     <button type="submit" class="btn btn-primary form-control">Daftar</button>
                 </div>
                 <div class="text-center">
-                    SudahPunyaAkun?<a href="login">Masuk</a>
+                    <a href="/users">Kembali</a>
                 </div>
             </form>
         </div>

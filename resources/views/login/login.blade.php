@@ -14,7 +14,7 @@
 <body>
 
     <div class="login-main main d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh">
-        <div class="login-box">
+        <div class="login-box col-md-3 col-sm-6 col-xs-12">
             <h2 class="mb-5">Login</h2>
             <form action="" method="post">
                 @if (session('status'))
@@ -38,7 +38,7 @@
                     <button type="submit" class="btn btn-primary form-control">Masuk</button>
                 </div>
                 <div class="text-center">
-                    BelumPunyaAkun?<a href="">Daftar</a>
+                    <a href="/">Beranda</a>
                 </div>
             </form>
         </div>

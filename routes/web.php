@@ -28,16 +28,16 @@ Route::get('/', [PublicController::class, 'index']);
 Route::middleware('only_guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'authenticating']);
-    Route::get('register', [AuthController::class, 'register']);
-    Route::post('register', [AuthController::class, 'registerProcess']);
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
     Route::get('profile', [UserController::class, 'profile'])->middleware(['only_client']);
-
-
+    
+    
     Route::middleware('only_admin')->group(function () {
+        Route::get('register', [AuthController::class, 'register']);
+        Route::post('register', [AuthController::class, 'registerProcess']);
         Route::get('dashboard', [DashboardController::class, 'index']);
 
         Route::get('books', [BookController::class, 'index']);
@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('users', [UserController::class, 'index']);
-        Route::get('re gistered-users', [UserController::class, 'registeredUser']);
+        Route::get('registered-users', [UserController::class, 'registeredUser']);
         Route::get('user-detail/{slug}', [UserController::class, 'show']);
         Route::get('user-approve/{slug}', [UserController::class, 'approve']);
         // Route::get('user-ban/{slug}', [UserController::class, 'delete']);
